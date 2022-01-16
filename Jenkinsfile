@@ -1,15 +1,10 @@
-
-node('node1')
-
 node
 
 {
 
-  def mavenHome=tool name: "maven3.6.3"
-  
  stage('Checkout')
  {
- 	git branch: 'development', credentialsId: 'bed5a851-d84d-412e-87e7-bf9ce23c0e0e', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'
+ 	git branch: 'developement', credentialsId: 'Github', url: 'https://github.com/shivagu/https-github.com-MithunTechnologiesDevOps-maven-web-application.git'
  
  }
 
@@ -38,7 +33,7 @@ node
   sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.235.132.183:/opt/apache-tomcat-9.0.29/webapps/"
  }
  }
-*/
+
  stage('SendEmailNotification')
  {
  emailext body: '''Build is over..
@@ -47,5 +42,5 @@ node
  Mithun Technologies,
  9980923226.''', subject: 'Build is over', to: 'devopstrainingblr@gmail.com'
  }
-
+*/
 }
